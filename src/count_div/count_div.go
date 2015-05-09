@@ -1,4 +1,4 @@
-package main
+package count_div
 import "fmt"
 
 func Solution(A int, B int, K int) int {

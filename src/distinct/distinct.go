@@ -1,4 +1,4 @@
-package main
+package distinct
 import "sort"
 
 func Solution(A []int) int {

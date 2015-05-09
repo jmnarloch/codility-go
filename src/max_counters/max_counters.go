@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package max_counters
 
 func Solution(N int, A []int) []int {
 	// write your code in Go 1.4
@@ -36,11 +35,4 @@ func Max(a int, b int) int {
 	} else {
 		return b
 	}
-}
-
-func main() {
-
-	N := 5
-	A := []int{3, 4, 4, 6, 1, 4, 4}
-	fmt.Println(Solution(N, A))
 }

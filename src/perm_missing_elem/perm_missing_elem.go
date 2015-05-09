@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package perm_missing_elem
 
 func Solution(A []int) int {
 	// write your code in Go 1.4
@@ -12,10 +11,4 @@ func Solution(A []int) int {
 	}
 
 	return expectedSum - sum
-}
-
-func main() {
-
-	A := []int{2, 3, 1, 5}
-	fmt.Println(Solution(A))
 }

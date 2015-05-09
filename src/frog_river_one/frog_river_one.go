@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package frog_river_one
 
 func Solution(X int, A []int) (min int) {
 	// write your code in Go 1.4
@@ -32,10 +31,4 @@ func Max(a int, b int) int {
 	} else {
 		return b
 	}
-}
-
-func main() {
-	X := 5
-	A := []int{1, 3, 1, 4, 2, 3, 5, 4}
-	fmt.Println(Solution(X, A))
 }

@@ -1,7 +1,4 @@
-package main
-import (
-	"fmt"
-)
+package min_avg_two_slice
 
 func Solution(A []int) int {
 	// write your code in Go 1.4
@@ -27,10 +24,4 @@ func Solution(A []int) int {
 	}
 
 	return index
-}
-
-func main() {
-
-	A := []int{4, 2, 2, 5, 1, 5, 8}
-	fmt.Println(Solution(A))
 }

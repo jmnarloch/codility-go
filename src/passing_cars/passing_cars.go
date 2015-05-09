@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package passing_cars
 
 func Solution(A []int) (cars int) {
 	// write your code in Go 1.4
@@ -20,9 +19,4 @@ func Solution(A []int) (cars int) {
 		}
 	}
 	return
-}
-
-func main() {
-	A := []int{0, 1, 0, 1, 1}
-	fmt.Println(Solution(A))
 }

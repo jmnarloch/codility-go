@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package missing_integer
 
 func Solution(A []int) int {
 	// write your code in Go 1.4
@@ -50,11 +49,4 @@ func Solution2(A []int) int {
 	}
 
 	return N + 1
-}
-
-func main() {
-
-	A := []int{1, 3, 6, 4, 1, 2}
-	fmt.Println(Solution(A))
-
 }

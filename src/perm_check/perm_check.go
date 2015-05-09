@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package perm_check
 
 func Solution(A []int) int {
 	// write your code in Go 1.4
@@ -21,9 +19,4 @@ func Solution(A []int) int {
 	}
 
 	return 1
-}
-
-func main() {
-	A := []int{4, 1, 3, 2}
-	fmt.Println(Solution(A))
 }

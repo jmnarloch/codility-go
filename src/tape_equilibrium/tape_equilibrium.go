@@ -1,7 +1,4 @@
-package main
-import (
-	"fmt"
-)
+package tape_equilibrium
 
 func Solution(A []int) (min int) {
 	// write your code in Go 1.4
@@ -36,9 +33,4 @@ func Min(a int, b int) int {
 	} else {
 		return b
 	}
-}
-
-func main() {
-	A := []int{3, 1, 2, 4, 3}
-	fmt.Println(Solution(A))
 }

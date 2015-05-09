@@ -1,5 +1,4 @@
-package main
-import "fmt"
+package genomic_range_query
 
 func Solution(S string, P []int, Q []int) []int {
 	// write your code in Go 1.4
@@ -46,16 +45,4 @@ func Genoms() map[rune]int {
 		'G': 2,
 		'T': 3,
 	}
-}
-
-func main() {
-
-	//	S := "CAGCCTA"
-	//	P := []int{2, 5, 0}
-	//	Q := []int{4, 5, 6}
-	S := "T"
-	P := []int{0}
-	Q := []int{0}
-
-	fmt.Println(Solution(S, P, Q))
 }
