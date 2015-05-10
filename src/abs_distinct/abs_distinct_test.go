@@ -7,7 +7,7 @@ func Test(t *testing.T) {
 	A := []int{-5, -3, -1, 0, 3, 6}
 
 	// when
-	result := Solution(A)
+	result := Solution2(A)
 
 	// then
 	if result != 5 {

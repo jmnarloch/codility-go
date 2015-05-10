@@ -28,9 +28,52 @@ func Solution(A []int) int {
 	return distinct
 }
 
+func Solution2(A []int) int {
+	// write your code in Go 1.4
+
+	N := len(A)
+	lo := 0
+	hi := N - 1
+
+	distinct := 1
+	prev := Max(Abs(A[lo]), Abs(A[hi]))
+	for lo <= hi {
+
+		head := Abs(A[lo])
+		if prev == head {
+			lo++
+			continue
+		}
+
+		tail := Abs(A[hi])
+		if prev == tail {
+			hi--
+			continue
+		}
+
+		if head >= tail {
+			prev = head
+			lo++
+		} else {
+			prev = tail
+			hi--
+		}
+		distinct++
+	}
+	return distinct
+}
+
 func Abs(a int) int {
 	if a < 0 {
 		a = -a
 	}
 	return a
+}
+
+func Max(a, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
 }
