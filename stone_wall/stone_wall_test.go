@@ -1,17 +1,23 @@
-package stone_wall
+package stone_wall_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/stone_wall"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("StoneWall", func() {
 
-	// given
-	H := []int{8, 8, 5, 7, 9, 8, 7, 4, 8}
+	var A []int
 
-	// when
-	result := Solution(H)
+	BeforeEach(func() {
+		A = []int{8, 8, 5, 7, 9, 8, 7, 4, 8}
+	})
 
-	// then
-	if result != 7 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Stone wall", func() {
+
+		It("should return minimum number of blocks", func() {
+			Expect(stone_wall.Solution(A)).To(Equal(7))
+		})
+	})
+})

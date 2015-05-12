@@ -10,7 +10,7 @@ func Solution(N int) int {
 	maxGap := 0
 	for val > 0 {
 		if (val & 1) == 1 {
-			maxGap = Max(maxGap, gap)
+			maxGap = max(maxGap, gap)
 			gap = 0
 		} else {
 			gap++
@@ -18,10 +18,10 @@ func Solution(N int) int {
 		val >>= 1
 	}
 
-	return Max(maxGap, gap)
+	return max(maxGap, gap)
 }
 
-func Max(a, b int) int {
+func max(a, b int) int {
 	if a > b {
 		return a
 	} else {

@@ -1,17 +1,23 @@
-package tape_equilibrium
+package tape_equilibrium_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/tape_equilibrium"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("TapeEquilibrium", func() {
 
-	// given
-	A := []int{3, 1, 2, 4, 3}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{3, 1, 2, 4, 3}
+	})
 
-	// then
-	if result != 1 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Tape", func() {
+
+		It("should return minimal absolute diff", func() {
+			Expect(tape_equilibrium.Solution(A)).To(Equal(1))
+		})
+	})
+})

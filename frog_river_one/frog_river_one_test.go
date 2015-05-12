@@ -1,18 +1,24 @@
-package frog_river_one
+package frog_river_one_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/frog_river_one"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("FrogRiverOne", func() {
 
-	// given
 	X := 5
-	A := []int{1, 3, 1, 4, 2, 3, 5, 4}
+	var A []int
 
-	// when
-	result := Solution(X, A)
+	BeforeEach(func() {
+		A = []int{1, 3, 1, 4, 2, 3, 5, 4}
+	})
 
-	// then
-	if result != 6 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Counting minimal time to cross river", func() {
+
+		It("should return minmal time", func() {
+			Expect(frog_river_one.Solution(X, A)).To(Equal(6))
+		})
+	})
+})

@@ -1,17 +1,23 @@
-package equi_leader
+package equi_leader_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/equi_leader"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("EquiLeader", func() {
 
-	// given
-	A := []int{4, 3, 4, 4, 4, 2}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{4, 3, 4, 4, 4, 2}
+	})
 
-	// then
-	if result != 2 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Searching leader", func() {
+
+		It("should return equi leader counts", func() {
+			Expect(equi_leader.Solution(A)).To(Equal(2))
+		})
+	})
+})

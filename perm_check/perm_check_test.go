@@ -1,17 +1,23 @@
-package perm_check
+package perm_check_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/perm_check"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("PermCheck", func() {
 
-	// given
-	A := []int{4, 1, 3, 2}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{4, 1, 3, 2}
+	})
 
-	// then
-	if result != 1 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Permutation", func() {
+
+		It("should return one", func() {
+			Expect(perm_check.Solution(A)).To(Equal(1))
+		})
+	})
+})

@@ -8,11 +8,11 @@ func Solution(A []int) int {
 
 	for k := N - 1; k >= 0; k-- {
 
-		if Abs(A[hi]) > Abs(A[lo]) {
-			aux[k] = Abs(A[hi])
+		if abs(A[hi]) > abs(A[lo]) {
+			aux[k] = abs(A[hi])
 			hi--
 		} else {
-			aux[k] = Abs(A[lo])
+			aux[k] = abs(A[lo])
 			lo++
 		}
 	}
@@ -32,16 +32,16 @@ func Solution2(A []int) int {
 	hi := N - 1
 
 	distinct := 1
-	prev := Max(Abs(A[lo]), Abs(A[hi]))
+	prev := max(abs(A[lo]), abs(A[hi]))
 	for lo <= hi {
 
-		head := Abs(A[lo])
+		head := abs(A[lo])
 		if prev == head {
 			lo++
 			continue
 		}
 
-		tail := Abs(A[hi])
+		tail := abs(A[hi])
 		if prev == tail {
 			hi--
 			continue
@@ -59,14 +59,14 @@ func Solution2(A []int) int {
 	return distinct
 }
 
-func Abs(a int) int {
+func abs(a int) int {
 	if a < 0 {
 		a = -a
 	}
 	return a
 }
 
-func Max(a, b int) int {
+func max(a, b int) int {
 	if a > b {
 		return a
 	} else {

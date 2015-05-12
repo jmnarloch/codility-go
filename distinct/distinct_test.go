@@ -1,17 +1,23 @@
-package distinct
+package distinct_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/distinct"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("Distinct", func() {
 
-	// given
-	A := []int{2, 1, 1, 2, 3, 1}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{2, 1, 1, 2, 3, 1}
+	})
 
-	// then
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Counting distinct", func() {
+
+		It("should return distinct element count", func() {
+			Expect(distinct.Solution(A)).To(Equal(3))
+		})
+	})
+})

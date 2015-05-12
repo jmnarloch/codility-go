@@ -3,19 +3,19 @@ package array_inversion_count
 func Solution(A []int) int {
 	N := len(A)
 	aux := make([]int, N)
-	return Inversions(A, aux, 0, N-1)
+	return inversions(A, aux, 0, N-1)
 }
 
-func Inversions(A []int, aux []int, lo int, hi int) int {
+func inversions(A []int, aux []int, lo int, hi int) int {
 
 	if hi <= lo {
 		return 0
 	}
 
 	mid := lo + (hi-lo)/2
-	inv := Inversions(A, aux, lo, mid)
-	inv += Inversions(A, aux, mid+1, hi)
-	inv += Merge(A, aux, lo, mid, hi)
+	inv := inversions(A, aux, lo, mid)
+	inv += inversions(A, aux, mid+1, hi)
+	inv += merge(A, aux, lo, mid, hi)
 
 	if inv > 1E9 {
 		return -1
@@ -23,7 +23,7 @@ func Inversions(A []int, aux []int, lo int, hi int) int {
 	return inv
 }
 
-func Merge(A []int, aux []int, lo int, mid int, hi int) int {
+func merge(A []int, aux []int, lo int, mid int, hi int) int {
 
 	inv := 0
 	for k := lo; k <= hi; k++ {

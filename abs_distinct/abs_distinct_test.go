@@ -1,17 +1,23 @@
-package abs_distinct
+package abs_distinct_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/abs_distinct"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("AbsDistinct", func() {
 
-	// given
-	A := []int{-5, -3, -1, 0, 3, 6}
+	var A []int
 
-	// when
-	result := Solution2(A)
+	BeforeEach(func() {
+		A = []int{-5, -3, -1, 0, 3, 6}
+	})
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Unique elements", func() {
+
+		It("should return distinct count", func() {
+			Expect(abs_distinct.Solution2(A)).To(Equal(5))
+		})
+	})
+})

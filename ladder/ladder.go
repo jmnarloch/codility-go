@@ -6,7 +6,7 @@ import (
 
 func Solution(A []int, B []int) []int {
 	N := len(A)
-	fib := NewFib(N)
+	fib := newFib(N)
 
 	result := make([]int, N)
 	for ind := 0; ind < N; ind++ {
@@ -22,19 +22,19 @@ type Fib interface {
 	Get(ind int) (uint64, error)
 }
 
-func NewFib(N int) Fib {
+func newFib(N int) Fib {
 
-	seq := new(FibSeq)
+	seq := new(fibSeq)
 	seq.init(N)
 	return seq
 }
 
-type FibSeq struct {
+type fibSeq struct {
 	seq  []uint64
 	size int
 }
 
-func (fib *FibSeq) init(N int) {
+func (fib *fibSeq) init(N int) {
 
 	fib.size = N
 	fib.seq = make([]uint64, N)
@@ -50,7 +50,7 @@ func (fib *FibSeq) init(N int) {
 	}
 }
 
-func (fib *FibSeq) Get(ind int) (uint64, error) {
+func (fib *fibSeq) Get(ind int) (uint64, error) {
 
 	if ind < 0 || ind >= fib.size {
 		return 0, errors.New("Index out of bounds")

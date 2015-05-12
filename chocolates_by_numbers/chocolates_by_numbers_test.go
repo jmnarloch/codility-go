@@ -1,18 +1,20 @@
-package chocolates_by_numbers
+package chocolates_by_numbers_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/chocolates_by_numbers"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("ChocolatesByNumbers", func() {
 
-	// given
 	N := 10
 	M := 4
 
-	// when
-	result := Solution(N, M)
+	Context("Counting chocolates", func() {
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return cycle size", func() {
+			Expect(chocolates_by_numbers.Solution(N, M)).To(Equal(5))
+		})
+	})
+})

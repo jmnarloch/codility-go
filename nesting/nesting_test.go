@@ -1,17 +1,19 @@
-package nesting
+package nesting_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/nesting"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("Nesting", func() {
 
-	// given
 	S := "(()(())())"
 
-	// when
-	result := Solution(S)
+	Context("Validating paratheneses", func() {
 
-	// then
-	if result != 1 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return valid", func() {
+			Expect(nesting.Solution(S)).To(Equal(1))
+		})
+	})
+})

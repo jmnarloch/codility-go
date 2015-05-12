@@ -1,19 +1,21 @@
-package frog_jmp
+package frog_jmp_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/frog_jmp"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("FrogJmp", func() {
 
-	// given
 	X := 10
 	Y := 85
 	D := 30
 
-	// when
-	result := Solution(X, Y, D)
+	Context("Counting jump", func() {
 
-	// then
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return minimum number of jump", func() {
+			Expect(frog_jmp.Solution(X, Y, D)).To(Equal(3))
+		})
+	})
+})

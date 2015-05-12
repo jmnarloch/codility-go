@@ -1,17 +1,23 @@
-package triangle
+package triangle_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/triangle"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("Triangle", func() {
 
-	// given
-	A := []int{10, 2, 5, 1, 8, 20}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{10, 2, 5, 1, 8, 20}
+	})
 
-	// then
-	if result != 1 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Triangle", func() {
+
+		It("should return one", func() {
+			Expect(triangle.Solution(A)).To(Equal(1))
+		})
+	})
+})

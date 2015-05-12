@@ -1,18 +1,25 @@
-package fish
+package fish_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/fish"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("Fish", func() {
 
-	// given
-	A := []int{4, 3, 2, 1, 5}
-	B := []int{0, 1, 0, 0, 0}
+	var A []int
+	var B []int
 
-	// when
-	result := Solution(A, B)
+	BeforeEach(func() {
+		A = []int{4, 3, 2, 1, 5}
+		B = []int{0, 1, 0, 0, 0}
+	})
 
-	// then
-	if result != 2 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Counting survived fish", func() {
+
+		It("should return live fish", func() {
+			Expect(fish.Solution(A, B)).To(Equal(2))
+		})
+	})
+})

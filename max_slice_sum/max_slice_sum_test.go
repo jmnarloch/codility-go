@@ -1,17 +1,23 @@
-package max_slice_sum
+package max_slice_sum_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/max_slice_sum"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MaxSliceSum", func() {
 
-	// given
-	A := []int{3, 2, -6, 4, 0}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{3, 2, -6, 4, 0}
+	})
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Max slice sum", func() {
+
+		It("should return max sum", func() {
+			Expect(max_slice_sum.Solution(A)).To(Equal(5))
+		})
+	})
+})

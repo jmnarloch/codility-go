@@ -1,17 +1,23 @@
-package max_profit
+package max_profit_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/max_profit"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MaxProfit", func() {
 
-	// given
-	A := []int{23171, 21011, 21123, 21366, 21013, 21367}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{23171, 21011, 21123, 21366, 21013, 21367}
+	})
 
-	// then
-	if result != 356 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Maximum profit", func() {
+
+		It("should return maximum profit", func() {
+			Expect(max_profit.Solution(A)).To(Equal(356))
+		})
+	})
+})

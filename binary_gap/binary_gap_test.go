@@ -1,17 +1,19 @@
-package binary_gap
+package binary_gap_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/binary_gap"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("BinaryGap", func() {
 
-	// given
 	N := 1041
 
-	// when
-	result := Solution(N)
+	Context("Counting b", func() {
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return max binary gap", func() {
+			Expect(binary_gap.Solution(N)).To(Equal(5))
+		})
+	})
+})

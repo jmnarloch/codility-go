@@ -1,19 +1,23 @@
-package perm_missing_elem
+package perm_missing_elem_test
 
 import (
-	"testing"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/perm_missing_elem"
 )
 
-func Test(t *testing.T) {
+var _ = Describe("PermMissingElem", func() {
 
-	// given
-	A := []int{2, 3, 1, 5}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{2, 3, 1, 5}
+	})
 
-	// then
-	if result != 4 {
-		t.Error("Incorrect reusult", result)
-	}
-}
+	Context("Permutation", func() {
+
+		It("should return missing element", func() {
+			Expect(perm_missing_elem.Solution(A)).To(Equal(4))
+		})
+	})
+})

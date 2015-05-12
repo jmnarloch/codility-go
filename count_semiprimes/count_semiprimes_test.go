@@ -1,32 +1,26 @@
-package count_semiprimes
+package count_semiprimes_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/count_semiprimes"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("CountSemiprimes", func() {
 
-	// given
 	N := 26
-	P := []int{1, 4, 16}
-	Q := []int{26, 10, 20}
+	var P []int
+	var Q []int
 
-	// when
-	result := Solution(N, P, Q)
+	BeforeEach(func() {
+		P = []int{1, 4, 16}
+		Q = []int{26, 10, 20}
+	})
 
-	// then
-	if !Equals([]int{10, 4, 0}, result) {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Counting semi primes", func() {
 
-func Equals(a []int, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for ind := range a {
-
-		if a[ind] != b[ind] {
-			return false
-		}
-	}
-	return true
-}
+		It("should return count of semi primes", func() {
+			Expect(count_semiprimes.Solution(N, P, Q)).To(Equal([]int{10, 4, 0}))
+		})
+	})
+})

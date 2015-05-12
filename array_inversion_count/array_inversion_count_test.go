@@ -1,17 +1,23 @@
-package array_inversion_count
+package array_inversion_count_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/array_inversion_count"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("ArrayInversionCount", func() {
 
-	// given
-	A := []int{-1, 6, 3, 4, 7, 4}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{-1, 6, 3, 4, 7, 4}
+	})
 
-	// then
-	if result != 4 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Counting inversions", func() {
+
+		It("should return inversions count", func() {
+			Expect(array_inversion_count.Solution(A)).To(Equal(4))
+		})
+	})
+})

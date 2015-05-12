@@ -1,31 +1,24 @@
-package max_counters
+package max_counters_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/max_counters"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MaxCounters", func() {
 
-	// given
 	N := 5
-	A := []int{3, 4, 4, 6, 1, 4, 4}
+	var A []int
 
-	// when
-	result := Solution(N, A)
+	BeforeEach(func() {
+		A = []int{3, 4, 4, 6, 1, 4, 4}
+	})
 
-	// then
-	if !Equals([]int{3, 2, 2, 4, 2}, result) {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Maximum counters", func() {
 
-func Equals(a []int, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for ind := range a {
-
-		if a[ind] != b[ind] {
-			return false
-		}
-	}
-	return true
-}
+		It("should return maximum counters", func() {
+			Expect(max_counters.Solution(N, A)).To(Equal([]int{3, 2, 2, 4, 2}))
+		})
+	})
+})

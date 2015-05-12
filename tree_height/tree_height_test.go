@@ -1,17 +1,25 @@
-package tree_height
+package tree_height_test
 
-import "testing"
+import (
+	. "github.com/jmnarloch/codility-go/tree_height"
 
-func Test(t *testing.T) {
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/tree_height"
+)
 
-	// given
-	root := &Tree{X: 5, L: &Tree{X: 3, L: &Tree{X: 20}, R: &Tree{X: 21}}, R: &Tree{X: 10, L: &Tree{X: 1}}}
+var _ = Describe("TreeHeight", func() {
 
-	// when
-	result := Solution(root)
+	var root *tree_height.Tree
 
-	// then
-	if result != 2 {
-		t.Error("Incorrect result", result)
-	}
-}
+	BeforeEach(func() {
+		root = &Tree{X: 5, L: &Tree{X: 3, L: &Tree{X: 20}, R: &Tree{X: 21}}, R: &Tree{X: 10, L: &Tree{X: 1}}}
+	})
+
+	Context("Binary tree", func() {
+
+		It("should return tree height", func() {
+			Expect(tree_height.Solution(root)).To(Equal(2))
+		})
+	})
+})

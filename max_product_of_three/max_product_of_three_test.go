@@ -1,17 +1,23 @@
-package max_product_of_three
+package max_product_of_three_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/max_product_of_three"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MaxProductOfThree", func() {
 
-	// given
-	A := []int{-3, 1, 2, -2, 5, 6}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{-3, 1, 2, -2, 5, 6}
+	})
 
-	// then
-	if result != 60 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Max product", func() {
+
+		It("should return max product of three elements", func() {
+			Expect(max_product_of_three.Solution(A)).To(Equal(60))
+		})
+	})
+})

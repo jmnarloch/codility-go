@@ -1,18 +1,21 @@
-package count_div
+package count_div_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/count_div"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("CountDiv", func() {
 
-	// given
 	A := 6
 	B := 11
 	K := 2
 
-	// when
-	result := Solution(A, B, K)
+	Context("Counting divisors", func() {
 
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return the divisors count", func() {
+			Expect(count_div.Solution(A, B, K)).To(Equal(3))
+		})
+	})
+})

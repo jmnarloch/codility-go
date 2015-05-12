@@ -6,10 +6,10 @@ func Solution(A []int) int {
 	N := len(A)
 	sort.Ints(A)
 
-	return Max(A[0]*A[1]*A[N-1], A[N-3]*A[N-2]*A[N-1])
+	return max(A[0]*A[1]*A[N-1], A[N-3]*A[N-2]*A[N-1])
 }
 
-func Max(a int, b int) int {
+func max(a int, b int) int {
 	if a > b {
 		return a
 	}

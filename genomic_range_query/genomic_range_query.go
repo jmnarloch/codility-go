@@ -5,7 +5,12 @@ func Solution(S string, P []int, Q []int) []int {
 	M := len(P)
 	G := 4
 
-	genoms := Genoms()
+	genoms := map[rune]int{
+		'A': 0,
+		'C': 1,
+		'G': 2,
+		'T': 3,
+	}
 	nucleons := make([][]int, N)
 
 	for ind, gen := range S {
@@ -33,14 +38,4 @@ func Solution(S string, P []int, Q []int) []int {
 	}
 
 	return result
-}
-
-func Genoms() map[rune]int {
-
-	return map[rune]int{
-		'A': 0,
-		'C': 1,
-		'G': 2,
-		'T': 3,
-	}
 }

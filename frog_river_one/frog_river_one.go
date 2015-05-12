@@ -17,13 +17,13 @@ func Solution(X int, A []int) (min int) {
 		if val == -1 {
 			return -1
 		}
-		min = Max(min, val)
+		min = max(min, val)
 	}
 
 	return
 }
 
-func Max(a int, b int) int {
+func max(a int, b int) int {
 	if a > b {
 		return a
 	} else {

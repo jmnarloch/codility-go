@@ -1,17 +1,23 @@
-package passing_cars
+package passing_cars_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/passing_cars"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("PassingCars", func() {
 
-	// given
-	A := []int{0, 1, 0, 1, 1}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{0, 1, 0, 1, 1}
+	})
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Passing cars", func() {
+
+		It("should count cars", func() {
+			Expect(passing_cars.Solution(A)).To(Equal(5))
+		})
+	})
+})

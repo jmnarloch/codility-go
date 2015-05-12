@@ -1,18 +1,25 @@
-package max_nonoverlapping_segments
+package max_nonoverlapping_segments_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/max_nonoverlapping_segments"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MaxNonOverlappingSeqments", func() {
 
-	// given
-	A := []int{1, 3, 7, 9, 9}
-	B := []int{5, 6, 8, 9, 10}
+	var A []int
+	var B []int
 
-	// when
-	result := Solution(A, B)
+	BeforeEach(func() {
+		A = []int{1, 3, 7, 9, 9}
+		B = []int{5, 6, 8, 9, 10}
+	})
 
-	// then
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Non overlapping seqments", func() {
+
+		It("should return non overlapping count", func() {
+			Expect(max_nonoverlapping_segments.Solution(A, B)).To(Equal(3))
+		})
+	})
+})

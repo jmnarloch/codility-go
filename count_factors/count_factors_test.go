@@ -1,17 +1,19 @@
-package count_factors
+package count_factors_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/count_factors"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("CountFactors", func() {
 
-	// given
 	N := 24
 
-	// when
-	result := Solution(N)
+	Context("Counting factors", func() {
 
-	// then
-	if result != 8 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return factors count", func() {
+			Expect(count_factors.Solution(N)).To(Equal(8))
+		})
+	})
+})

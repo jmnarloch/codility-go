@@ -1,18 +1,24 @@
-package tie_ropes
+package tie_ropes_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/tie_ropes"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("TieRopes", func() {
 
-	// given
 	K := 4
-	A := []int{1, 2, 3, 4, 1, 1, 3}
+	var A []int
 
-	// when
-	result := Solution(K, A)
+	BeforeEach(func() {
+		A = []int{1, 2, 3, 4, 1, 1, 3}
+	})
 
-	// then
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Tie ropes", func() {
+
+		It("should gready tie ropes", func() {
+			Expect(tie_ropes.Solution(K, A)).To(Equal(3))
+		})
+	})
+})

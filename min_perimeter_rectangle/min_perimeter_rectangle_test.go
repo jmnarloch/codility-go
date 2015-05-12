@@ -1,17 +1,19 @@
-package min_perimeter_rectangle
+package min_perimeter_rectangle_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/min_perimeter_rectangle"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MinPerimeterRectangle", func() {
 
-	// given
 	N := 30
 
-	// when
-	result := Solution(N)
+	Context("Computing perimeter", func() {
 
-	// then
-	if result != 22 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return min", func() {
+			Expect(min_perimeter_rectangle.Solution(N)).To(Equal(22))
+		})
+	})
+})

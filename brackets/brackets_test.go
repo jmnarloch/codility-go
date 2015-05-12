@@ -1,17 +1,20 @@
-package brackets
+package brackets_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/brackets"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("Brackets", func() {
 
 	// given
 	S := "{[()()]}"
 
-	// when
-	result := Solution(S)
+	Context("Brackets nesting", func() {
 
-	// then
-	if result != 1 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should valid correctness", func() {
+			Expect(brackets.Solution(S)).To(Equal(1))
+		})
+	})
+})

@@ -1,17 +1,23 @@
-package missing_integer
+package missing_integer_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/missing_integer"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("MissingInteger", func() {
 
-	// given
-	A := []int{1, 3, 6, 4, 1, 2}
+	var A []int
 
-	// when
-	result := Solution(A)
+	BeforeEach(func() {
+		A = []int{1, 3, 6, 4, 1, 2}
+	})
 
-	// then
-	if result != 5 {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Founding missing possitive integer inversions", func() {
+
+		It("should return missing integer", func() {
+			Expect(missing_integer.Solution(A)).To(Equal(5))
+		})
+	})
+})

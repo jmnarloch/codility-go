@@ -1,17 +1,19 @@
-package str_symmetry_point
+package str_symmetry_point_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/str_symmetry_point"
+)
 
-func Test(t *testing.T) {
+var _ = Describe("StrSymetryPoint", func() {
 
-	// given
 	S := "racecar"
 
-	// when
-	result := Solution(S)
+	Context("Symetry point", func() {
 
-	// then
-	if result != 3 {
-		t.Error("Incorrect result", result)
-	}
-}
+		It("should return string symetry index", func() {
+			Expect(str_symmetry_point.Solution(S)).To(Equal(3))
+		})
+	})
+})

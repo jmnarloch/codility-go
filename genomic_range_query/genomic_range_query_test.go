@@ -1,34 +1,26 @@
-package genomic_range_query
+package genomic_range_query_test
 
 import (
-	"testing"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/jmnarloch/codility-go/genomic_range_query"
 )
 
-func Test(t *testing.T) {
+var _ = Describe("GenomicRangeQuery", func() {
 
-	// given
 	S := "CAGCCTA"
-	P := []int{2, 5, 0}
-	Q := []int{4, 5, 6}
+	var P []int
+	var Q []int
 
-	// when
-	result := Solution(S, P, Q)
+	BeforeEach(func() {
+		P = []int{2, 5, 0}
+		Q = []int{4, 5, 6}
+	})
 
-	// then
-	if !Equals([]int{2, 4, 1}, result) {
-		t.Error("Incorrect result", result)
-	}
-}
+	Context("Genoms", func() {
 
-func Equals(a []int, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for ind := range a {
-
-		if a[ind] != b[ind] {
-			return false
-		}
-	}
-	return true
-}
+		It("should return range query result", func() {
+			Expect(genomic_range_query.Solution(S, P, Q)).To(Equal([]int{2, 4, 1}))
+		})
+	})
+})
