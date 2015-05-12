@@ -1,9 +1,9 @@
 package perm_missing_elem_test
 
 import (
+	"github.com/jmnarloch/codility-go/perm_missing_elem"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/perm_missing_elem"
 )
 
 var _ = Describe("PermMissingElem", func() {

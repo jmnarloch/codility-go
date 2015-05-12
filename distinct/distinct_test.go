@@ -1,9 +1,9 @@
 package distinct_test
 
 import (
+	"github.com/jmnarloch/codility-go/distinct"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/distinct"
 )
 
 var _ = Describe("Distinct", func() {

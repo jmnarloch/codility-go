@@ -1,9 +1,9 @@
 package min_avg_two_slice_test
 
 import (
+	"github.com/jmnarloch/codility-go/min_avg_two_slice"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/min_avg_two_slice"
 )
 
 var _ = Describe("MinAvgTwoSlice", func() {

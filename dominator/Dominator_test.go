@@ -1,9 +1,9 @@
 package dominator_test
 
 import (
+	"github.com/jmnarloch/codility-go/dominator"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/dominator"
 )
 
 var _ = Describe("Dominator", func() {

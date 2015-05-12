@@ -1,9 +1,9 @@
 package missing_integer_test
 
 import (
+	"github.com/jmnarloch/codility-go/missing_integer"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/missing_integer"
 )
 
 var _ = Describe("MissingInteger", func() {

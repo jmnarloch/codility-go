@@ -1,9 +1,9 @@
 package perm_check_test
 
 import (
+	"github.com/jmnarloch/codility-go/perm_check"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/perm_check"
 )
 
 var _ = Describe("PermCheck", func() {

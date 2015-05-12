@@ -3,9 +3,9 @@ package tree_height_test
 import (
 	. "github.com/jmnarloch/codility-go/tree_height"
 
+	"github.com/jmnarloch/codility-go/tree_height"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/tree_height"
 )
 
 var _ = Describe("TreeHeight", func() {

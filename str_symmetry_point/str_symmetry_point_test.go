@@ -1,9 +1,9 @@
 package str_symmetry_point_test
 
 import (
+	"github.com/jmnarloch/codility-go/str_symmetry_point"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/str_symmetry_point"
 )
 
 var _ = Describe("StrSymetryPoint", func() {

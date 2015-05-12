@@ -1,9 +1,9 @@
 package max_profit_test
 
 import (
+	"github.com/jmnarloch/codility-go/max_profit"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/max_profit"
 )
 
 var _ = Describe("MaxProfit", func() {

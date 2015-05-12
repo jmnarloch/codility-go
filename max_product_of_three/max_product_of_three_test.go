@@ -1,9 +1,9 @@
 package max_product_of_three_test
 
 import (
+	"github.com/jmnarloch/codility-go/max_product_of_three"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/max_product_of_three"
 )
 
 var _ = Describe("MaxProductOfThree", func() {

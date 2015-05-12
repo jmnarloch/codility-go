@@ -1,9 +1,9 @@
 package count_semiprimes_test
 
 import (
+	"github.com/jmnarloch/codility-go/count_semiprimes"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/count_semiprimes"
 )
 
 var _ = Describe("CountSemiprimes", func() {

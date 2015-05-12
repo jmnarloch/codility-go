@@ -1,9 +1,9 @@
 package triangle_test
 
 import (
+	"github.com/jmnarloch/codility-go/triangle"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/triangle"
 )
 
 var _ = Describe("Triangle", func() {

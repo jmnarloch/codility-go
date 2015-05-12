@@ -1,9 +1,9 @@
 package ladder_test
 
 import (
+	"github.com/jmnarloch/codility-go/ladder"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/ladder"
 )
 
 var _ = Describe("Ladder", func() {

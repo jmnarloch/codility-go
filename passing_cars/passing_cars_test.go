@@ -1,9 +1,9 @@
 package passing_cars_test
 
 import (
+	"github.com/jmnarloch/codility-go/passing_cars"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/passing_cars"
 )
 
 var _ = Describe("PassingCars", func() {

@@ -1,9 +1,9 @@
 package count_div_test
 
 import (
+	"github.com/jmnarloch/codility-go/count_div"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/count_div"
 )
 
 var _ = Describe("CountDiv", func() {

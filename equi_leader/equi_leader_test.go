@@ -1,9 +1,9 @@
 package equi_leader_test
 
 import (
+	"github.com/jmnarloch/codility-go/equi_leader"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/equi_leader"
 )
 
 var _ = Describe("EquiLeader", func() {

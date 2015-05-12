@@ -1,9 +1,9 @@
 package max_counters_test
 
 import (
+	"github.com/jmnarloch/codility-go/max_counters"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/max_counters"
 )
 
 var _ = Describe("MaxCounters", func() {

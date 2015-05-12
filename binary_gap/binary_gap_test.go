@@ -1,9 +1,9 @@
 package binary_gap_test
 
 import (
+	"github.com/jmnarloch/codility-go/binary_gap"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/binary_gap"
 )
 
 var _ = Describe("BinaryGap", func() {

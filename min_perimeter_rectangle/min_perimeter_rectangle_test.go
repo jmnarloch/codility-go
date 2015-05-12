@@ -1,9 +1,9 @@
 package min_perimeter_rectangle_test
 
 import (
+	"github.com/jmnarloch/codility-go/min_perimeter_rectangle"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/min_perimeter_rectangle"
 )
 
 var _ = Describe("MinPerimeterRectangle", func() {

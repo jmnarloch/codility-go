@@ -1,9 +1,9 @@
 package frog_river_one_test
 
 import (
+	"github.com/jmnarloch/codility-go/frog_river_one"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/frog_river_one"
 )
 
 var _ = Describe("FrogRiverOne", func() {

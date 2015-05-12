@@ -1,9 +1,9 @@
 package tie_ropes_test
 
 import (
+	"github.com/jmnarloch/codility-go/tie_ropes"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/tie_ropes"
 )
 
 var _ = Describe("TieRopes", func() {

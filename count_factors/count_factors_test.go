@@ -1,9 +1,9 @@
 package count_factors_test
 
 import (
+	"github.com/jmnarloch/codility-go/count_factors"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/count_factors"
 )
 
 var _ = Describe("CountFactors", func() {

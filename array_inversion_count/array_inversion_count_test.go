@@ -1,9 +1,9 @@
 package array_inversion_count_test
 
 import (
+	"github.com/jmnarloch/codility-go/array_inversion_count"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/array_inversion_count"
 )
 
 var _ = Describe("ArrayInversionCount", func() {

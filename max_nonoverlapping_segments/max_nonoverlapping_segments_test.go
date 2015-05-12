@@ -1,9 +1,9 @@
 package max_nonoverlapping_segments_test
 
 import (
+	"github.com/jmnarloch/codility-go/max_nonoverlapping_segments"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/max_nonoverlapping_segments"
 )
 
 var _ = Describe("MaxNonOverlappingSeqments", func() {

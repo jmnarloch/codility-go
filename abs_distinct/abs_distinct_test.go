@@ -1,9 +1,9 @@
 package abs_distinct_test
 
 import (
+	"github.com/jmnarloch/codility-go/abs_distinct"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/abs_distinct"
 )
 
 var _ = Describe("AbsDistinct", func() {

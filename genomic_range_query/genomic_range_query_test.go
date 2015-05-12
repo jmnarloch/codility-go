@@ -1,9 +1,9 @@
 package genomic_range_query_test
 
 import (
+	"github.com/jmnarloch/codility-go/genomic_range_query"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/genomic_range_query"
 )
 
 var _ = Describe("GenomicRangeQuery", func() {

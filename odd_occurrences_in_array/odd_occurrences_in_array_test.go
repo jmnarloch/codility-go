@@ -1,13 +1,13 @@
 package odd_occurrences_in_array_test
 
 import (
+	"github.com/jmnarloch/codility-go/odd_occurrences_in_array"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/odd_occurrences_in_array"
 )
 
 var _ = Describe("OddOccurencesInArray", func() {
-	
+
 	var A []int
 
 	BeforeEach(func() {

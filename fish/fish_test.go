@@ -1,9 +1,9 @@
 package fish_test
 
 import (
+	"github.com/jmnarloch/codility-go/fish"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/fish"
 )
 
 var _ = Describe("Fish", func() {

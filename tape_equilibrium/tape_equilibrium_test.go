@@ -1,9 +1,9 @@
 package tape_equilibrium_test
 
 import (
+	"github.com/jmnarloch/codility-go/tape_equilibrium"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/tape_equilibrium"
 )
 
 var _ = Describe("TapeEquilibrium", func() {

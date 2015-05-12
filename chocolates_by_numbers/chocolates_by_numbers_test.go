@@ -1,9 +1,9 @@
 package chocolates_by_numbers_test
 
 import (
+	"github.com/jmnarloch/codility-go/chocolates_by_numbers"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/chocolates_by_numbers"
 )
 
 var _ = Describe("ChocolatesByNumbers", func() {

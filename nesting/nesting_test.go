@@ -1,9 +1,9 @@
 package nesting_test
 
 import (
+	"github.com/jmnarloch/codility-go/nesting"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/nesting"
 )
 
 var _ = Describe("Nesting", func() {

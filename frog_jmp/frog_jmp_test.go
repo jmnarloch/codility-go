@@ -1,9 +1,9 @@
 package frog_jmp_test
 
 import (
+	"github.com/jmnarloch/codility-go/frog_jmp"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/frog_jmp"
 )
 
 var _ = Describe("FrogJmp", func() {

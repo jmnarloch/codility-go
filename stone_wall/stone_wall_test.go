@@ -1,9 +1,9 @@
 package stone_wall_test
 
 import (
+	"github.com/jmnarloch/codility-go/stone_wall"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/stone_wall"
 )
 
 var _ = Describe("StoneWall", func() {

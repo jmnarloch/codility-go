@@ -1,9 +1,9 @@
 package max_slice_sum_test
 
 import (
+	"github.com/jmnarloch/codility-go/max_slice_sum"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/jmnarloch/codility-go/max_slice_sum"
 )
 
 var _ = Describe("MaxSliceSum", func() {
