@@ -28,8 +28,7 @@ func Solution(A []int) int {
 	minSum := abs64(aux[0] << 1)
 	for ind := 1; ind < N; ind++ {
 
-		minSum = min64(minSum, abs64(aux[ind]<<1))
-		minSum = min64(minSum, abs64(aux[ind]+aux[ind-1]))
+		minSum = min64(minSum, min64(abs64(aux[ind]<<1), abs64(aux[ind]+aux[ind-1])))
 	}
 
 	return int(minSum)
