@@ -14,9 +14,9 @@ var _ = Describe("MaxDoubleSliceSum", func() {
 		A = []int{3, 2, 6, -1, 4, 5, -1, 2}
 	})
 
-	Context("Counting inversions", func() {
+	Context("Counting double max slices", func() {
 
-		It("should return inversions count", func() {
+		It("should return the double max slice", func() {
 			Expect(max_double_slice_sum.Solution(A)).To(Equal(17))
 		})
 	})
