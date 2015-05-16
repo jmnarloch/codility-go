@@ -1,3 +1,3 @@
 # Codility lessons in GO 
 
-Solutions to codility example problems written in GO
+Solutions to codility problems written in GO
