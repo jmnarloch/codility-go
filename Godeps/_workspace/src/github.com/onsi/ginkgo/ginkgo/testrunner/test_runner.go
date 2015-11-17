@@ -31,17 +31,19 @@ type TestRunner struct {
 	parallelStream bool
 	race           bool
 	cover          bool
+	coverPkg       string
 	tags           string
 	additionalArgs []string
 }
 
-func New(suite testsuite.TestSuite, numCPU int, parallelStream bool, race bool, cover bool, tags string, additionalArgs []string) *TestRunner {
+func New(suite testsuite.TestSuite, numCPU int, parallelStream bool, race bool, cover bool, coverPkg string, tags string, additionalArgs []string) *TestRunner {
 	runner := &TestRunner{
 		Suite:          suite,
 		numCPU:         numCPU,
 		parallelStream: parallelStream,
 		race:           race,
 		cover:          cover,
+		coverPkg:       coverPkg,
 		tags:           tags,
 		additionalArgs: additionalArgs,
 	}
@@ -74,8 +76,11 @@ func (t *TestRunner) CompileTo(path string) error {
 	if t.race {
 		args = append(args, "-race")
 	}
-	if t.cover {
+	if t.cover || t.coverPkg != "" {
 		args = append(args, "-cover", "-covermode=atomic")
+	}
+	if t.coverPkg != "" {
+		args = append(args, fmt.Sprintf("-coverpkg=%s", t.coverPkg))
 	}
 	if t.tags != "" {
 		args = append(args, fmt.Sprintf("-tags=%s", t.tags))
@@ -95,9 +100,76 @@ func (t *TestRunner) CompileTo(path string) error {
 		return fmt.Errorf("Failed to compile %s", t.Suite.PackageName)
 	}
 
+	if fileExists(path) == false {
+		compiledFile := filepath.Join(t.Suite.Path, t.Suite.PackageName+".test")
+		if fileExists(compiledFile) {
+			// seems like we are on an old go version that does not support the -o flag on go test
+			// move the compiled test file to the desired location by hand
+			err = os.Rename(compiledFile, path)
+			if err != nil {
+				// We cannot move the file, perhaps because the source and destination
+				// are on different partitions. We can copy the file, however.
+				err = copyFile(compiledFile, path)
+				if err != nil {
+					return fmt.Errorf("Failed to copy compiled file: %s", err)
+				}
+			}
+		} else {
+			return fmt.Errorf("Failed to compile %s: output file %q could not be found", t.Suite.PackageName, path)
+		}
+	}
+
 	t.compiled = true
 
 	return nil
+}
+
+func fileExists(path string) bool {
+	_, err := os.Stat(path)
+	return err == nil || os.IsNotExist(err) == false
+}
+
+// copyFile copies the contents of the file named src to the file named
+// by dst. The file will be created if it does not already exist. If the
+// destination file exists, all it's contents will be replaced by the contents
+// of the source file.
+func copyFile(src, dst string) error {
+	srcInfo, err := os.Stat(src)
+	if err != nil {
+		return err
+	}
+	mode := srcInfo.Mode()
+
+	in, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+
+	defer in.Close()
+
+	out, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+
+	defer func() {
+		closeErr := out.Close()
+		if err == nil {
+			err = closeErr
+		}
+	}()
+
+	_, err = io.Copy(out, in)
+	if err != nil {
+		return err
+	}
+
+	err = out.Sync()
+	if err != nil {
+		return err
+	}
+
+	return out.Chmod(mode)
 }
 
 /*
@@ -206,7 +278,7 @@ func (t *TestRunner) runAndStreamParallelGinkgoSuite() RunResult {
 
 	os.Stdout.Sync()
 
-	if t.cover {
+	if t.cover || t.coverPkg != "" {
 		t.combineCoverprofiles()
 	}
 
@@ -288,7 +360,7 @@ func (t *TestRunner) runParallelGinkgoSuite() RunResult {
 		os.Stdout.Sync()
 	}
 
-	if t.cover {
+	if t.cover || t.coverPkg != "" {
 		t.combineCoverprofiles()
 	}
 
@@ -297,7 +369,7 @@ func (t *TestRunner) runParallelGinkgoSuite() RunResult {
 
 func (t *TestRunner) cmd(ginkgoArgs []string, stream io.Writer, node int) *exec.Cmd {
 	args := []string{"--test.timeout=24h"}
-	if t.cover {
+	if t.cover || t.coverPkg != "" {
 		coverprofile := "--test.coverprofile=" + t.Suite.PackageName + ".coverprofile"
 		if t.numCPU > 1 {
 			coverprofile = fmt.Sprintf("%s.%d", coverprofile, node)
